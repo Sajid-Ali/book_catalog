@@ -22,6 +22,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", ApiRoutes);
 
+app.get("/", (req, res) => {
+  res.send({ message: "Welcome to the book ctlog" });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
