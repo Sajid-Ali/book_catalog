@@ -1,4 +1,4 @@
-import IBookData from "types/book.type";
+import IBookData, { ICreatBook } from "types/book.type";
 import http from "../http-common";
 
 class BookDataService {
@@ -10,11 +10,11 @@ class BookDataService {
     return http.get<IBookData>(`/books/${id}`);
   }
 
-  create(data: IBookData) {
+  create(data: ICreatBook) {
     return http.post<IBookData>("/books", data);
   }
 
-  update(data: IBookData, id: any) {
+  update(data: ICreatBook, id: any) {
     return http.put<any>(`/books/${id}`, data);
   }
 

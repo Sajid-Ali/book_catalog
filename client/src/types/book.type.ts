@@ -9,3 +9,12 @@ export default interface IBookData {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface ICreatBook {
+  title?: string;
+  year?: string;
+  author?: string;
+  price?: string;
+  description?: string;
+  image?: string;
+}

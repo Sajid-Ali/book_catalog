@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "pages/Home";
 import Layout from "components/Layout";
 import DetailPage from "pages/Detail";
+import AddBookPage from "pages/AddBook";
 
 export interface IApplicationProps {}
 
@@ -18,7 +19,8 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="book/:id" element={<DetailPage />} />
+            <Route path="/book/:id" element={<DetailPage />} />
+            <Route path="/book/add" element={<AddBookPage />} />
           </Routes>
         </BrowserRouter>
       </Layout>
