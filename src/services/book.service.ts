@@ -4,7 +4,7 @@ import { Book } from "../models/Book";
 export const list = async function (): Promise<any> {
   try {
     const books: any = await Book.find();
-    return { success: true, data: books, error: null };
+    return { success: true, result: books, error: null };
   } catch (error) {
     return {
       success: false,
@@ -17,7 +17,7 @@ export const list = async function (): Promise<any> {
 export const getById = async function (id: string): Promise<any> {
   try {
     const book: any = await Book.findById(id);
-    return { success: true, data: book, error: null };
+    return { success: true, result: book, error: null };
   } catch (error) {
     return { success: false, message: "No book found", error: error };
   }
@@ -30,7 +30,7 @@ export const create = async function (book: BookInput): Promise<any> {
       success: true,
       error: null,
       message: "Book added successfully",
-      data: newBook,
+      result: newBook,
     };
   } catch (error) {
     return { success: false, message: "Unable to add this book", error: error };
@@ -49,7 +49,7 @@ export const updateById = async function (
       success: true,
       error: null,
       message: "Updated successfully",
-      data: updatedBook,
+      result: updatedBook,
     };
   } catch (error) {
     return { success: false, message: "Unable to add this book", error: error };

@@ -1,5 +1,23 @@
 // Override default variables before the import
-$body-bg: #FFFFFF;
+$body-bg: #ffffff;
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+
+.book {
+  width: 25%;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+.books-list {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.book--description {
+  max-height: 120px;
+  font-size: 12px;
+  overflow: auto;
+}
