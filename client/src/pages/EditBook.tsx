@@ -17,6 +17,7 @@ const EditBookPage: React.FunctionComponent = () => {
 
   useEffect(() => {
     retrieveBook();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const retrieveBook: any = () => {
