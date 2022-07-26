@@ -23,6 +23,11 @@ cd book_catalog
 npm install
 ```
 
+to run the server, run the below command after `npm install` 
+```bash
+npm run dev
+```
+
 ## Steps for read-only access
 
 To start the express server, run the following
@@ -33,3 +38,13 @@ npm run dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) and take a look around.
+
+
+Once server up and running, run the below command to run client  
+```bash
+npm run client-install
+```
+
+```bash
+npm run client
+```
