@@ -1,10 +1,10 @@
 import "./book.css";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 import bookService from "services/book.service";
 import IBookData from "types/book.type";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export interface IDetailPageProps {}
 
@@ -16,11 +16,12 @@ const DetailPage: React.FunctionComponent<IDetailPageProps> = (props) => {
   const [book, setBook] = useState<IDetailPageStates["book"]>({} as IBookData);
   let { id } = useParams();
 
-  const createMarkup = (markup: string) => ({ __html: markup });
-
   useEffect(() => {
     retrieveBook();
   }, []);
+  const navigate = useNavigate();
+
+  const createMarkup = (markup: string) => ({ __html: markup });
 
   const retrieveBook: any = () => {
     bookService
@@ -28,6 +29,21 @@ const DetailPage: React.FunctionComponent<IDetailPageProps> = (props) => {
       .then((response: any) => {
         const { data } = response;
         setBook(data.result);
+        console.log(response.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+  };
+
+  const deleteBook: any = () => {
+    bookService
+      .delete(id)
+      .then((response: any) => {
+        const { data } = response;
+        if (data.success) {
+          navigate("/");
+        }
         console.log(response.data);
       })
       .catch((e: Error) => {
@@ -48,9 +64,9 @@ const DetailPage: React.FunctionComponent<IDetailPageProps> = (props) => {
                 Edit
               </Link>
 
-              <Link className="book" to={`/book/${book._id}`}>
+              <Button className="book" onClick={deleteBook}>
                 Delete
-              </Link>
+              </Button>
             </div>
           </div>
           <div className="book-card--body">
