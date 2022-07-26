@@ -51,7 +51,7 @@ const BookForm: React.FunctionComponent<IBookFormProps> = (props) => {
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
     switch (name) {
-      case "quantity":
+      case "year":
         if (value === "" || parseInt(value) === +value) {
           setBook((prevState) => ({
             ...prevState,

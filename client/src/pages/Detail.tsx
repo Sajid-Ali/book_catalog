@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import bookService from "services/book.service";
 import IBookData from "types/book.type";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export interface IDetailPageProps {}
 
@@ -38,8 +38,21 @@ const DetailPage: React.FunctionComponent<IDetailPageProps> = (props) => {
     <Container>
       <Row>
         <Col>
-          <h1>{book.title}</h1>
-          <h3>{book.author}</h3>
+          <div className="wrapper">
+            <div>
+              <h1>{book.title}</h1>
+              <h3>{book.author}</h3>
+            </div>
+            <div className="actions">
+              <Link className="book" to={`/book/edit/${book._id}`}>
+                Edit
+              </Link>
+
+              <Link className="book" to={`/book/${book._id}`}>
+                Delete
+              </Link>
+            </div>
+          </div>
           <div className="book-card--body">
             <figure className="book-card--thumbnail">
               <img

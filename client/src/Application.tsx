@@ -6,6 +6,7 @@ import HomePage from "pages/Home";
 import Layout from "components/Layout";
 import DetailPage from "pages/Detail";
 import AddBookPage from "pages/AddBook";
+import EditBookPage from "pages/EditBook";
 
 export interface IApplicationProps {}
 
@@ -21,6 +22,7 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
             <Route path="/" element={<HomePage />} />
             <Route path="/book/:id" element={<DetailPage />} />
             <Route path="/book/add" element={<AddBookPage />} />
+            <Route path="/book/edit/:id" element={<EditBookPage />} />
           </Routes>
         </BrowserRouter>
       </Layout>
